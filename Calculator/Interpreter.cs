@@ -1,4 +1,6 @@
-﻿namespace Calculator
+﻿using System.Collections.Generic;
+
+namespace Calculator
 {
     // Since this is a very simple calculator, an Abstract Syntax Tree is not required and is not implemented to maximize speed
     // The parser and interpreter are merged together
@@ -141,10 +143,20 @@
             }
 
             Eat(TokenType.OpenParen);
-            double x = Expr();
+
+            // Fetch the first parameter
+            List<double> parameters = new List<double>() { Expr() };
+
+            // Fetch all remaining parameters
+            while (currentToken.Type == TokenType.Comma)
+            {
+                Eat(TokenType.Comma);
+                parameters.Add(Expr());
+            }
+
             Eat(TokenType.CloseParen);
 
-            return functionSolver.Solve(token.Value, x);
+            return functionSolver.Solve(token.Value, parameters.ToArray());
         }
 
         // Consumes the current token

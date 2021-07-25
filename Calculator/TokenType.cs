@@ -6,6 +6,7 @@
         OpenParen      = '(',
         CloseParen     = ')',
         Period         = '.',
+        Comma          = ',',
         Plus           = '+',
         Minus          = '-',
         Mult           = '*',

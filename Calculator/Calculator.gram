@@ -1,5 +1,5 @@
 ﻿Expr     : Term ((Plus | Minus) Term)*
 Term     : Factor ((Mult | Div) Factor)*
 Factor   : Number | Unary | Function | OpenParen Expr CloseParen
-Function : Identifier OpenParen Expr CloseParen
+Function : Identifier OpenParen Expr (Comma Expr)* CloseParen
 Unary    : Plus Factor | Minus Factor

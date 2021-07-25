@@ -20,7 +20,10 @@ namespace Calculator
             { "ceiling", new Function(1, (x) => Math.Ceiling(x[0])) },
             { "round", new Function(1, (x) => Math.Round(x[0])) },
             { "sqrt", new Function(1, (x) => Math.Sqrt(x[0])) },
-            { "pow", new Function(2, (x) => Math.Pow(x[0], x[1])) }
+            { "pow", new Function(2, (x) => Math.Pow(x[0], x[1])) },
+            { "ln", new Function(1, (x) => Math.Log(x[0])) },
+            { "log2", new Function(1, (x) => Math.Log2(x[0])) },
+            { "log10", new Function(1, (x) => Math.Log10(x[0])) }
         };
 
         public bool ContainsFunction(string name)
